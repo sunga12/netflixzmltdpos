@@ -16,6 +16,8 @@ class Order < ApplicationRecord
 
   # Methods
 
+  ## total = sum(order items.all(quantity * price))
+
   # Callbacks
 
 end
