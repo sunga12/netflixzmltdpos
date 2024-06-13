@@ -1,6 +1,4 @@
 class Order < ApplicationRecord
-  
-  
   # Associations
   belongs_to :user
   has_many :order_items
@@ -8,7 +6,7 @@ class Order < ApplicationRecord
 
   # Attributes
   attribute :date, :date
-  attribute :total, :decimal
+  attribute :total, :decimal, default: 0.00
 
   # Validations
 
@@ -16,8 +14,12 @@ class Order < ApplicationRecord
 
   # Methods
 
-  ## total = sum(order items.all(quantity * price))
-
   # Callbacks
+  before_save :update_total
 
+  private 
+
+  def update_total
+    self.total = order_items.sum('quantity * price')
+  end
 end

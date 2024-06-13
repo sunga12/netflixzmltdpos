@@ -1,5 +1,4 @@
 class Product < ApplicationRecord
-
   
     # Associations
     has_many :order_items
@@ -7,12 +6,12 @@ class Product < ApplicationRecord
   
     # Attributes
     attribute :name, :string
-    attribute :description, :string
-    attribute :category, :string
-    attribute :price, :decimal
+    attribute :description, :string, :default => "No description avaliable"
+    attribute :category, :string, :default => "Uncategorized"
+    attribute :price, :decimal, :default => 0.00
     attribute :sku, :string
-    attribute :stocklevel, :integer
-    attribute :reorderlevel, :integer
+    attribute :stocklevel, :integer, :default => 0.00
+    attribute :reorderlevel, :integer, :default => 0.00
   
     # Validations
     validates :name, presence: true
@@ -23,7 +22,10 @@ class Product < ApplicationRecord
     validates :reorderlevel, presence: true, numericality: { greater_than_or_equal_to: 0 }
   
     # Methods
+
   
     # Callbacks
+
+
 
 end
