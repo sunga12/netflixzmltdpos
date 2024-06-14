@@ -8,9 +8,19 @@ RSpec.describe User, type: :model do
     ) }
     before { subject.save }
 
-    it "name should be present" do
-      subject.name = nil
-      expect(subject).to_not_be_valid   
+    it "username should be present" do
+      subject.username = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "role should be present" do
+      subject.role = nil
+      expect(subject).not_to be_valid
+    end
+
+    it "fullname should be present" do
+      subject.fullname = nil
+      expect(subject).to_not be_valid
     end
 end
     

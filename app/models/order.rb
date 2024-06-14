@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   # Attributes
   attribute :date, :date
   attribute :total, :decimal, default: 0.00
-
+  
   # Validations
 
   validates :total, numericality: { greater_than_or_equal_to: 0 }
