@@ -17,7 +17,7 @@ class OrderItem < ApplicationRecord
 
   #Set the default to the product price
   def set_price
-    self.price ||= product.price
+    self.price = product.price
   end
   
 end

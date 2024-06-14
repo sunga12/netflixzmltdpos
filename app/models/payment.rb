@@ -20,7 +20,7 @@ class Payment < ApplicationRecord
 
   ## Sets the default to Order total
   def set_amount
-    self.amount ||= order.total
+    self.amount = order.total
   end
 
   before_save :set_amount
