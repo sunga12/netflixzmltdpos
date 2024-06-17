@@ -51,6 +51,6 @@ class Api::V1::OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:id, :date, :total, :user_id)
+    params.permit(:date, :total)
   end
 end

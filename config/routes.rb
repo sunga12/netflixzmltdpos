@@ -11,9 +11,13 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :create, :show, :destroy] do
-        resources :orders, only: [:index, :create, :show, :destroy]
+        resources :orders, only: [:index, :create, :show, :destroy] do
+          resources :order_items, only: [:index, :create, :show, :destroy]
+          resources :payments, only: [:index, :create, :show, :destroy]
+
+        end
       end        
-      resources :products, only: [:index, :create, :show, :update, :destroy]
+      resources :products, only: [:index, :create, :show, :update, :destroy] 
     end
   end
 end
