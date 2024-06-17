@@ -22,7 +22,12 @@ class Api::V1::ProductsController < ApplicationController
   end
   
   def show
-    render json: @product
+    @product = Product.find(params[:id])
+    if @product
+      render json: @product
+    else
+      render json: { error: 'Order not found' }
+    end
   end
 
   def update
